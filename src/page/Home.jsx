@@ -1,46 +1,78 @@
 import React from "react";
 import Slider from "react-slick";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faPenToSquare,faHeart,faNewspaper,faBell,faAddressBook} from "@fortawesome/free-solid-svg-icons";
-import '../css/home.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPenToSquare,
+  faHeart,
+  faNewspaper,
+  faBell,
+  faAddressBook,
+} from "@fortawesome/free-solid-svg-icons";
+import "../css/home.css";
 export default function Home() {
   let settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
   };
+  let pictures = ["1.jpg", "2.jpg", "3.jpg"];
   return (
     <div>
-        <h2> Single Item</h2>
-        <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-        </Slider>
-        <div className={'fontawesome'}>
-        <FontAwesomeIcon icon={faAddressBook}size='lg'/>
-        <FontAwesomeIcon icon={faPenToSquare}size='lg'/>
-        <FontAwesomeIcon icon={faNewspaper}size='lg'/>
-        <FontAwesomeIcon icon={faHeart}size='lg'/>
-        <FontAwesomeIcon icon={faBell}size='lg'/>
+      <h2> 05/01 평가내용</h2>
+      <Slider {...settings}>
+        {/*
+        <div>
+          <img src={require("../image/1.jpg")} alt="" />
         </div>
+        <div>
+          <img src={require("../image/2.jpg")} alt="" />
+        </div>
+        <div>
+          <img src={require("../image/3.jpg")} alt="" />
+        </div>
+        */}
+        {pictures.map((pic, id) => (
+          <div key={id}>
+            <img src={require(`../image/${pic}`)} />
+          </div>
+        ))}
+      </Slider>
+      <div className={"fontawesome"}>
+        <FontAwesomeIcon icon={faAddressBook} size="2xl" />
+        <FontAwesomeIcon icon={faPenToSquare} size="2xl" />
+        <FontAwesomeIcon icon={faNewspaper} size="2xl" />
+        <FontAwesomeIcon icon={faHeart} size="2xl" className={"svgheart"} />
+        <FontAwesomeIcon icon={faBell} size="2xl" />
       </div>
+    </div>
+  );
+}
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "red", display: "none" }}
+      onClick={onClick}
+    />
+  );
+}
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "green",
+        display: "none",
+      }}
+      onClick={onClick}
+    />
   );
 }

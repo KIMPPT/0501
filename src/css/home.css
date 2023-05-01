@@ -1,6 +1,29 @@
-.fontawesome{
-    margin-top:50px;
+.slick-dots {
+    bottom: 20px;
 }
-svg{
-    margin:0 20px
+
+.fontawesome {
+    margin-top: 50px;
+}
+
+svg {
+    margin: 0 20px;
+    color: black;
+    transition: color 0.5s;
+    width: 30px;
+    height: 30px;
+}
+
+svg:hover {
+    color: orange;
+    transition: color 0.5s;
+}
+
+img {
+    width: 100%;
+    height: 500px;
+}
+
+.svgheart:hover {
+    color: red;
 }
