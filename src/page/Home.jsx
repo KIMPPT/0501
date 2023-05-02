@@ -16,8 +16,7 @@ export default function Home() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    arrows:false, //화살표 유무를 표시함(기본값:true)
   };
   let pictures = ["1.jpg", "2.jpg", "3.jpg"];
   return (
